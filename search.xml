@@ -1,26 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Hello World</title>
-    <url>/wangchaofan.github.io/2022/04/14/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>my_site</title>
+    <title>hexo+github搭建博客</title>
     <url>/wangchaofan.github.io/2022/04/14/my-site/</url>
-    <content><![CDATA[]]></content>
+    <content><![CDATA[<h2 id="使用github-hexo实现博客网站的建立，在此记录。便于后来者少走弯路。"><a href="#使用github-hexo实现博客网站的建立，在此记录。便于后来者少走弯路。" class="headerlink" title="使用github+hexo实现博客网站的建立，在此记录。便于后来者少走弯路。"></a>使用github+hexo实现博客网站的建立，在此记录。便于后来者少走弯路。</h2><h3 id="1-创建一个以-xxx-github-io为名的repo，此处的xxx应为本人的账号名称。"><a href="#1-创建一个以-xxx-github-io为名的repo，此处的xxx应为本人的账号名称。" class="headerlink" title="1.创建一个以 xxx.github.io为名的repo，此处的xxx应为本人的账号名称。"></a>1.创建一个以 xxx.github.io为名的repo，此处的xxx应为本人的账号名称。</h3><h3 id="2-在repo的setting中开启Pages，由此可以使用github来托管网站"><a href="#2-在repo的setting中开启Pages，由此可以使用github来托管网站" class="headerlink" title="2.在repo的setting中开启Pages，由此可以使用github来托管网站"></a>2.在repo的setting中开启Pages，由此可以使用github来托管网站</h3><h3 id="3-终端下载npm，然后通过npm安装hexo"><a href="#3-终端下载npm，然后通过npm安装hexo" class="headerlink" title="3.终端下载npm，然后通过npm安装hexo"></a>3.终端下载npm，然后通过npm安装hexo</h3><figure class="highlight mipsasm"><table><tr><td class="code"><pre><span class="line"><span class="keyword">brew </span><span class="keyword">install </span>npm</span><br><span class="line">npm <span class="keyword">install </span>-g hexo-cli </span><br></pre></td></tr></table></figure>
+<h3 id="4-hexo初始化项目并创建第一条博客"><a href="#4-hexo初始化项目并创建第一条博客" class="headerlink" title="4.hexo初始化项目并创建第一条博客"></a>4.hexo初始化项目并创建第一条博客</h3><figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line">hexo <span class="keyword">init</span> blog</span><br><span class="line">hexo <span class="keyword">new</span> first_blog</span><br></pre></td></tr></table></figure>
+<h3 id="5-为推送网站上github，需要修改项目根目录下的-config-yml，此配置文件主要用作站点全局配置。"><a href="#5-为推送网站上github，需要修改项目根目录下的-config-yml，此配置文件主要用作站点全局配置。" class="headerlink" title="5.为推送网站上github，需要修改项目根目录下的_config.yml，此配置文件主要用作站点全局配置。"></a>5.为推送网站上github，需要修改项目根目录下的_config.yml，此配置文件主要用作站点全局配置。</h3><figure class="highlight mipsasm"><table><tr><td class="code"><pre><span class="line">vim _<span class="built_in">config</span>.yml</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>6.在根目录_config.yml文件最后位置修改deploy配置,此处的repo路径应为新创建的项目路径</p>
+</blockquote>
+<figure class="highlight dts"><table><tr><td class="code"><pre><span class="line"><span class="symbol">deploy:</span></span><br><span class="line"><span class="symbol">  type:</span> git</span><br><span class="line"><span class="symbol">  repo:</span> https:<span class="comment">//github.com/wangchaofan/wangchaofan.github.io.git</span></span><br><span class="line"><span class="symbol">  branch:</span> master</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>7.hexo常规操作</p>
+<ul>
+<li>hexo clean 清除缓存</li>
+<li>hexo g 生成网页</li>
+<li>hexo s 本地发布页面</li>
+<li>hexo d 远程推送github</li>
+</ul>
+</blockquote>
+<h3 id="8-在根目录config-yml中配置-url与root。注意：url应为github-pages生成的地址，root为本仓库的仓库名称。此处不配置将无法加载js与css"><a href="#8-在根目录config-yml中配置-url与root。注意：url应为github-pages生成的地址，root为本仓库的仓库名称。此处不配置将无法加载js与css" class="headerlink" title="8. 在根目录config.yml中配置 url与root。注意：url应为github pages生成的地址，root为本仓库的仓库名称。此处不配置将无法加载js与css"></a>8. 在根目录config.yml中配置 url与root。注意：url应为github pages生成的地址，root为本仓库的仓库名称。此处不配置将无法加载js与css</h3><figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">url: https:<span class="regexp">//</span>wangchaofan2018.github.io<span class="regexp">/wangchaofan.github.io/</span></span><br><span class="line">root: /wangchaofan.github.io</span><br></pre></td></tr></table></figure>
+<h3 id="9-在样式库选择自己喜欢的样式，按下方命令配置到-x2F-themes-x2F-中-再在根目录-config文件中配置theme字段。"><a href="#9-在样式库选择自己喜欢的样式，按下方命令配置到-x2F-themes-x2F-中-再在根目录-config文件中配置theme字段。" class="headerlink" title="9.在样式库选择自己喜欢的样式，按下方命令配置到 .&#x2F;themes&#x2F;中,再在根目录_config文件中配置theme字段。"></a>9.在样式库选择自己喜欢的样式，按下方命令配置到 .&#x2F;themes&#x2F;中,再在根目录_config文件中配置theme字段。</h3><p>样式库：<a href="https://hexo.io/themes/">theme</a></p>
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">git clone https:<span class="regexp">//gi</span>thub.com<span class="regexp">/iissnan/</span>hexo-theme-<span class="keyword">next</span> themes/<span class="keyword">next</span></span><br></pre></td></tr></table></figure>
+<h3 id="10-可在-x2F-theme-x2F-next-x2F-中的-config-yml文件中修改，进行个性化配置。具体可参照如下链接"><a href="#10-可在-x2F-theme-x2F-next-x2F-中的-config-yml文件中修改，进行个性化配置。具体可参照如下链接" class="headerlink" title="10.可在&#x2F;theme&#x2F;next&#x2F;中的_config.yml文件中修改，进行个性化配置。具体可参照如下链接"></a>10.可在&#x2F;theme&#x2F;next&#x2F;中的_config.yml文件中修改，进行个性化配置。具体可参照如下链接</h3><p><a href="https://huangpiao.tech/2019/01/24/Hexo%E5%8D%9A%E5%AE%A2%E4%BC%98%E5%8C%96%E4%B9%8BNext%E4%B8%BB%E9%A2%98%E7%BE%8E%E5%8C%96/">next主题美化</a></p>
+<h3 id="11-进入source-x2F-posts-x2F-文件夹"><a href="#11-进入source-x2F-posts-x2F-文件夹" class="headerlink" title="11.进入source&#x2F;_posts&#x2F;文件夹"></a>11.进入source&#x2F;_posts&#x2F;文件夹</h3><p>此处可以看到以md结尾的文件即为发布的文章，对其进行编辑。就此实现了博客的搭建以及第一篇博文的编写。</p>
+]]></content>
   </entry>
 </search>
